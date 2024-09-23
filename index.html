@@ -21,42 +21,44 @@
       }
 
       .bg-cover {
-        position: relative;
-        background-image: url("Images/college.jpg.jpg");
-        background-size: cover;
-        background-position: center;
-        height: 120vh;
-        width: 100%;
-      }
+    position: relative;
+    background-image: url("./Images/college.jpg.jpg");
+    background-size: cover;
+    background-position: center;
+    height: 100vh;
+    width: 100%;
+}
 
-      .bg-overlay {
-        position: absolute;
-        top: 0;
-        left: 0;
-        right: 0;
-        bottom: 0;
-        background-color: rgba(0, 0, 0, 0.5);
-        z-index: 1;
-      }
+.bg-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: rgba(0, 0, 0, 0.5);
+    z-index: 1;
+}
 
-      .content {
-        position: relative;
-        z-index: 2;
-        color: white;
-      }
+.content {
+    position: relative; /* Ensure content is above the overlay */
+    z-index: 2; /* Content above the overlay */
+}
 
-      .position-relative {
-        position: relative;
-      }
+.hover-effect {
+    transition: transform 0.3s;
+}
 
-      .hover-effect {
-        transition: transform 0.3s, box-shadow 0.3s;
-      }
+.hover-effect:hover {
+    transform: scale(1.05); /* Slightly enlarge on hover */
+}
 
-      .hover-effect:hover {
-        transform: scale(1.05);
-        box-shadow: 0 4px 20px rgba(0, 0, 0, 0.2);
-      }
+/* Media Queries for Further Customization (if needed) */
+@media (max-width: 576px) {
+    .bg-cover {
+        height: auto; /* Adjust height for smaller devices */
+    }
+}
+
 
       .box {
         background-color: #e5e7e9;
@@ -181,74 +183,49 @@
       </nav>
     </div>
 
-    <div class="bg-cover d-flex align-items-center mb-4">
+    <div class="bg-cover d-flex align-items-center">
       <div class="bg-overlay"></div>
-      <div class="container mt-5 content">
-        <div class="row">
-          <div class="col-md-6 mb-4">
-            <h1>Making education easier</h1>
-            <h1>the way possible</h1>
-            <h2>Extensively</h2>
-            <div>
-              <h6>Reach out to the most competent & passionate mentors</h6>
-            </div>
-            <div>
-              <button class="btn btn-success">Free Consultation</button>
-              <button class="btn btn-primary">How to work</button>
-            </div>
-          </div>
-
-          <div class="col-md-6 mb-4 bg-dark p-4 hover-effect" id="addmission">
-            <h4>Let's turn your education with us</h4>
-            <h6>Enter basic details for admission enquiry</h6>
-            <form id="admissionForm">
-              <div class="input-group row mb-3">
-                <input
-                  type="text"
-                  class="form-control col-6 m-1"
-                  placeholder="First Name"
-                  name="firstName"
-                  required=""
-                />
-                <input
-                  type="text"
-                  class="form-control col-6 m-1"
-                  placeholder="Last Name"
-                  name="lastName"
-                  required
-                />
+      <div class="container mt-7 content">
+          <div class="row">
+              <div class="col-md-6 mb-4 text-white">
+                  <h2>Making Education Easier</h2>
+                  <h2>The Way Possible</h2>
+                  <h3>Extensively</h3>
+                  <h6>Reach out to the most competent & passionate mentors</h6>
+                  <div class="d-flex flex-column flex-md-row mt-3">
+                      <button class="btn btn-success mb-2 mb-md-0 me-md-2">Free Consultation</button>
+                      <button class="btn btn-primary">How to Work</button>
+                  </div>
               </div>
-              <div class="input-group mb-3 row">
-                <input
-                  type="email"
-                  class="form-control m-1 col-6"
-                  name="email"
-                  placeholder="Email"
-                  required
-                />
-                <input
-                  type="number"
-                  class="form-control m-1 col-6"
-                  name="number"
-                  placeholder="Mobile"
-                  required
-                />
+  
+              <div class="col-md-6 bg-dark p-4 hover-effect" id="admission">
+                  <h4 class="text-white">Let's Turn Your Education with Us</h4>
+                  <h6 class="text-white">Enter basic details for admission enquiry</h6>
+                  <form id="admissionForm">
+                      <div class="input-group row mb-3">
+                          <input type="text" class="form-control col-6 m-1" placeholder="First Name" name="firstName" required />
+                          <input type="text" class="form-control col-6 m-1" placeholder="Last Name" name="lastName" required />
+                      </div>
+                      <div class="input-group mb-3 row">
+                          <input type="email" class="form-control m-1 col-6" name="email" placeholder="Email" required />
+                          <input type="number" class="form-control m-1 col-6" name="number" placeholder="Mobile" required />
+                      </div>
+                      <select class="form-select row mb-3" name="courseType" required>
+                          <option value="" disabled selected>Select Course Type</option>
+                          <option value="1">Java</option>
+                          <option value="2">.Net</option>
+                          <option value="3">Aws</option>
+                          <option value="4">UI</option>
+                          <option value="5">Data Science</option>
+                      </select>
+                      <button type="submit" class="btn btn-warning row">Submit</button>
+                  </form>
+                  <div id="errorMessage" class="text-danger mt-2"></div>
               </div>
-              <select class="form-select row mb-3" name="courseType" required>
-                <option value="" disabled selected>Select Course Type</option>
-                <option value="1">Java</option>
-                <option value="2">.Net</option>
-                <option value="3">Aws</option>
-                <option value="4">UI</option>
-                <option value="5">Data Science</option>
-              </select>
-              <button type="submit" class="btn btn-warning row">Submit</button>
-            </form>
-            <div id="errorMessage" class="text-danger mt-2"></div>
           </div>
-        </div>
       </div>
-    </div>
+  </div>
+  
 
     <div class="text-center mt-4">
       <div class="fs-6 text-warning mt-4">INSTITUTIONAL GOLE</div>
@@ -276,7 +253,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 ">
           <div class="card hover-effect">
             <img
               src="Images/learning.jpg.jpg"
@@ -293,7 +270,7 @@
             </div>
           </div>
         </div>
-        <div class="col-md-4">
+        <div class="col-md-4 ">
           <div class="card hover-effect">
             <img
               src="Images/staff.jpg.jpg"
